@@ -19,7 +19,6 @@ public class NPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (transform.position.y < -screenBounds.y * 2)
         {
             Destroy(this.gameObject);
