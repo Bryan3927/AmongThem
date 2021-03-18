@@ -17,6 +17,9 @@ public class NPCDeployer : MonoBehaviour
     {
         GameObject n = Instantiate(NPCPrefab) as GameObject;
         n.transform.position = new Vector2(x, screenBounds.y * 2);
+        GameObject childText = n.transform.GetChild(0).gameObject;
+        textHandler script = childText.GetComponent<textHandler>();
+        script.InitValue("B2");
     }
 
     IEnumerator NPCWave()
