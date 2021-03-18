@@ -9,13 +9,16 @@ public class textHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        txt = this.GetComponent<TextMesh>();
+        // txt = this.GetComponent<TextMesh>();
+        // txt.text = "filler";
     }
 
-    public void InitValue(string value)
+    public void InitValue(int value)
     {
-        NPCValue = value;
-        txt.text = NPCValue.ToString();
+        // NPCValue = value;
+        // Debug.Log(value);
+        txt = this.GetComponent<TextMesh>();
+        txt.text = value.ToString();
     }
 
     // Update is called once per frame

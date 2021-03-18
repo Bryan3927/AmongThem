@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4bf7408b04edd9478cb1a99f5eff5d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCPrefab: {fileID: 5290785047171271672, guid: ad219e1804629334195494418ec8bd0f, type: 3}
+  NPCPrefab: {fileID: 5235391081237565702, guid: 621e4752167ec904d873163c48ab3e4c, type: 3}
   respawnTime: 3
 --- !u!4 &623663649
 Transform:
