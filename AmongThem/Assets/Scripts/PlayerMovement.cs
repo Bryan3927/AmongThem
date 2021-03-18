@@ -35,29 +35,51 @@ public class PlayerMovement : MonoBehaviour
         }
 
         else{
-            if( Input.GetAxisRaw("Horizontal") != 0){
-                if(h_isAxisInUse == false){
-                // Call your event function here.
-                Move();
-                h_isAxisInUse = true;
+            // if( Input.GetAxisRaw("Horizontal") != 0){
+            //     if(h_isAxisInUse == false){
+            //     // Call your event function here.
+            //     if (choice==2){
+            //         Move1();
+            //     }
+            //     else{
+            //         Move2();
+            //     }
+            //     h_isAxisInUse = true;
+            //     }
+            // }
+            // if( Input.GetAxisRaw("Horizontal") == 0){
+            //     h_isAxisInUse = false;
+            // }    
+            if (Input.anyKeyDown){
+                if (choice==2){
+                    Move1();
+                }
+                else{
+                    Move2();
                 }
             }
-            if( Input.GetAxisRaw("Horizontal") == 0){
-                h_isAxisInUse = false;
-            }    
-
         }
+
+
         
     }
 
-    private void Move(){
-        if (Input.GetAxisRaw("Horizontal")==0){
-            ;
-        } else if (Input.GetAxisRaw("Horizontal")<0) {
+    private void Move1(){
+        if (Input.GetAxisRaw("Horizontal")<0) {
             counter = Mathf.Max(0, counter-1);
-        } else if (Input.GetAxisRaw("Horizontal")>0) {
+        } else {
             counter = Mathf.Min(2, counter+1);
         }    
+    }
+
+    private void Move2(){
+        if (Input.GetAxisRaw("Horizontal")<0) {
+            counter = 0;
+        } else if (Input.GetAxisRaw("Vertical")<0){
+            counter = 1;
+        } else {
+            counter = 2;
+        }
     }
 
     void FixedUpdate()
