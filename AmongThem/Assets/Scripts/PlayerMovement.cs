@@ -93,6 +93,9 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        //NPC script = col.gameObject.GetComponent<NPC>();
+        //int[] npc_info = new int[] { script.team, script.rank };
+
         if (col.gameObject.name == "NPC 1"){
             int[] npc_info = new int[]{2, 10};
             Check(npc_info);
