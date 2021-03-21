@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 223111608}
   - component: {fileID: 223111611}
   - component: {fileID: 223111610}
+  - component: {fileID: 223111612}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -219,10 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a31d155daee8686592dff95b1998bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  choice: 3
+  bow: 0
+  health: 10
   moveSpeed: 5.05
   rb: {fileID: 223111611}
-  choice: 1
-  h_isAxisInUse: 0
   counter: 1
 --- !u!50 &223111611
 Rigidbody2D:
@@ -245,6 +247,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &223111612
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 223111607}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.01021415, y: -0.0033797473}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.47567427, y: 0.47572425}
+  m_EdgeRadius: 0
 --- !u!1 &353634355
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d0f25a2cec73342ad2b840cd3d78ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 3
 --- !u!61 &1763392728
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -683,7 +711,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
