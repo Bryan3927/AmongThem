@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class textHandler : MonoBehaviour
 {
-    public string NPCValue = "";
     private TextMesh txt;
     // Start is called before the first frame update
     void Start()
@@ -15,8 +14,7 @@ public class textHandler : MonoBehaviour
 
     public void InitValue(int value)
     {
-        // NPCValue = value;
-        // Debug.Log(value);
+        // Initializes displayed rank
         txt = this.GetComponent<TextMesh>();
         txt.text = value.ToString();
     }

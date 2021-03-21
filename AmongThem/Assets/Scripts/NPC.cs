@@ -7,7 +7,8 @@ public class NPC : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    private string NPCValue;
+    public int team;
+    public int rank;
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,12 @@ public class NPC : MonoBehaviour
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
-    public void InitNPC(string value)
+    public void InitNPC(int team, int rank)
     {
-        // txtNPCValue = this.GetComponent<Text>(); // get the text component of the cell
-        NPCValue = value; // set the value
-        // txtNPCValue.text = NPCValue.ToString(); // update the GUI
+        // Initializes the NPC's team and rank
+        this.team = team; 
+        this.rank = rank;
+        transform.GetChild(0).gameObject.GetComponent<textHandler>().InitValue(rank);
     }
 
     // Update is called once per frame
