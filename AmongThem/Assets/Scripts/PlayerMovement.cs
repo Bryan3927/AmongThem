@@ -93,12 +93,12 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        //NPC script = col.gameObject.GetComponent<NPC>();
-        //int[] npc_info = new int[] { script.team, script.rank };
-
-        if (col.gameObject.name == "NPC 1"){
-            int[] npc_info = new int[]{2, 10};
+        if (col.gameObject.name == "NPC 1(Clone)"){
+            //int[] npc_info = new int[]{2, 10};
+            NPC script = col.gameObject.GetComponent<NPC>();
+            int[] npc_info = new int[] { script.team, script.rank };
             Check(npc_info);
+            Debug.Log("inside");
         }  
     }
 
