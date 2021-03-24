@@ -8,6 +8,7 @@ public class NPCDeployer : MonoBehaviour
     public float respawnTime = 1.0f;
     private Vector2 screenBounds;
     public Sprite[] sprites;
+    //public Animation[] animations;
     public GameObject player;
     private List<List<int>> people = new List<List<int>>();
     // Start is called before the first frame update
@@ -44,6 +45,8 @@ public class NPCDeployer : MonoBehaviour
         int team = person[0];
         int rank = person[1];
         sr.sprite = sprites[team];
+        //npc.AddComponent(typeof(Animation));
+        //Animation ani = npc.GetComponent<Animation>();
         npc.GetComponent<NPC>().InitNPC(team, rank);
     }
 
