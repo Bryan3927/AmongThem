@@ -151,8 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d0f25a2cec73342ad2b840cd3d78ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  deployer: {fileID: 5606493301415990451, guid: 058eb7108f999d94c9d226831b980397, type: 3}
+  speed: 3
   team: 0
   rank: 0
 --- !u!222 &7740412230906954178

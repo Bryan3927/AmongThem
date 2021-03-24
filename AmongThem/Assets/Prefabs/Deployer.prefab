@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 1710193505958615011, guid: 1722fca419516874cb25377f8ad20d91, type: 3}
-  respawnTime: 3
+  respawnTime: 6
   sprites:
   - {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
   - {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}

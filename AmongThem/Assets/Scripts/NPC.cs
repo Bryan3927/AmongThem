@@ -29,6 +29,14 @@ public class NPC : MonoBehaviour
         transform.GetChild(0).gameObject.GetComponent<textHandler>().InitValue(rank);
     }
 
+    public void Reaction(bool proper)
+    {
+        // trigger NPC animations
+        // speed = 0;
+        // rb.velocity = new Vector2(0, -speed);
+        // after animation done, reset speed
+    }
+
     // Update is called once per frame
     void Update()
     {
