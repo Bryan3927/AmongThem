@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public bool bow = false;
     public int health = 10;
     int[] identity = new int[2];
+    public bool collide = false;
 
     //movement fields
     public float moveSpeed = 5f;
@@ -30,13 +31,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Input
+
+        //movement
         if (choice==1){
             movement.x=Input.GetAxisRaw("Horizontal");
             movement.y=Input.GetAxisRaw("Vertical");
         }
 
         else{
-
             if (Input.anyKeyDown){
                 if (choice==2){
                     Move1();
@@ -44,21 +46,28 @@ public class PlayerMovement : MonoBehaviour
                 else{
                     Move2();
                 }
-                Bow();
             }
+        }
+
+        if (Input.anyKeyDown){
+            Bow();
         }
     }
 
     void FixedUpdate()
     {
-        //Movement
-        if (choice==1){
-            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (!collide){
+            //Movement
+            if (choice==1){
+                rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+            }
+            else{
+                rb.position += (positions[counter] - rb.position) * 0.1f;
+            }
         }
-        else{
-            rb.position += (positions[counter] - rb.position) * 0.1f;
-        }
-        
+
+        //if (collide and getCurrentime() - time_collision > 1 sec)
+            
     }
 
     private void Move1(){
@@ -94,30 +103,45 @@ public class PlayerMovement : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "NPC 1(Clone)"){
-            //int[] npc_info = new int[]{2, 10};
+            collide = true;
             NPC script = col.gameObject.GetComponent<NPC>();
             int[] npc_info = new int[] { script.team, script.rank };
-            Check(npc_info);
+            script.Reaction(Check(npc_info)); // adjust health, trigger encounter animations
+            collide = false; //TODO
         }  
     }
 
-    private void Check(int[] npc){
+    private bool Check(int[] npc){
         //see if player bowed correctly
         if (npc[0]==identity[0]){ //same team
             if (identity[1]+5<=npc[1]){ //player is higher rank
-                if (bow) {health--;}
+                if (bow) {
+                    health--;
+                    return false;
+                }
             }
             else{
-                if (!bow) {health--;} //player is lower rank
+                if (!bow) { //player is lower rank
+                    health--;
+                    return false;
+                } 
             }
         }
         else{
             if (identity[1]<=npc[1]){ //player is higher rank
-                if (bow) {health--;}
+                if (bow) {
+                    health--;
+                    return false;
+                }
             }
             else {
-                if (!bow) {health--;}
+                if (!bow) { //player is lower rank
+                    health--;
+                    return false;
+                }
             }
         }
+
+        return true;
     }
 }
