@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
         //populate identity
         identity[0] = Random.Range(1,5); //team
         identity[1] = Random.Range(1, 11); //rank
+        Debug.Log(identity[0]);
+        Debug.Log(identity[1]);
     }
 
     void Update()
@@ -86,8 +88,6 @@ public class PlayerMovement : MonoBehaviour
     private void Bow(){
         if (Input.GetAxisRaw("Bow")>0){
             bow=!bow;
-            Debug.Log(identity[0]);
-            Debug.Log(identity[1]);
         }
     }
 
@@ -98,7 +98,6 @@ public class PlayerMovement : MonoBehaviour
             NPC script = col.gameObject.GetComponent<NPC>();
             int[] npc_info = new int[] { script.team, script.rank };
             Check(npc_info);
-            Debug.Log("inside");
         }  
     }
 
