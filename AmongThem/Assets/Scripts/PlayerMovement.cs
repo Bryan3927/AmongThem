@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public int choice = 1;
     public bool bow = false;
     public int health = 10;
-    int[] identity = new int[2];
+    public int[] identity = new int[2];
 
     //movement fields
     public float moveSpeed = 5f;

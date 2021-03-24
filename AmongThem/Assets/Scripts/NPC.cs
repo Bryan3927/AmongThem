@@ -7,6 +7,8 @@ public class NPC : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
+    public GameObject deployer;
+    NPCDeployer script;
     public int team;
     public int rank;
 
@@ -16,6 +18,7 @@ public class NPC : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, - speed );
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        script = deployer.GetComponent<NPCDeployer>();
     }
 
     public void InitNPC(int team, int rank)
