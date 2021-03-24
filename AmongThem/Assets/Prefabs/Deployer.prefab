@@ -43,11 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4565053d3dfa6ca4bb514efc00904575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCPrefab: {fileID: 5235391081237565702, guid: 621e4752167ec904d873163c48ab3e4c, type: 3}
+  NPCPrefab: {fileID: 1710193505958615011, guid: 1722fca419516874cb25377f8ad20d91, type: 3}
   respawnTime: 3
   sprites:
   - {fileID: -2413806693520163455, guid: 4adeaf2d2b1c7417e89f026626d8264f, type: 3}
   - {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
   - {fileID: 2747690628134850419, guid: a9716c16a44a94eed9b5c90fbf4d9bdd, type: 3}
   - {fileID: 3625043607559282579, guid: 0d267bc78a0864eb48358689b29ed20a, type: 3}
-  player: {fileID: 0}
+  player: {fileID: 2014257284974930633, guid: 2e64452bf4a374c489308d7ccd22ebb0, type: 3}

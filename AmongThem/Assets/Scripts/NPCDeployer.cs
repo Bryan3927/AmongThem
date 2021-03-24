@@ -38,9 +38,9 @@ public class NPCDeployer : MonoBehaviour
         // Selects sprite (team) and rank and calls initialization function
         SpriteRenderer sr = npc.GetComponent<SpriteRenderer>();
         int range = people.Count;
-        //Debug.Log(range);
+        Debug.Log(range);
         List<int> person = people[Random.Range(0, range)];
-        // people.Remove(person);
+        people.Remove(person);
         int team = person[0];
         int rank = person[1];
         sr.sprite = sprites[team];

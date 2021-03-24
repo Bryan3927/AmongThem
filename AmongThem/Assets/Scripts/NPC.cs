@@ -7,7 +7,6 @@ public class NPC : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody2D rb;
     private Vector2 screenBounds;
-    public GameObject deployer;
     NPCDeployer script;
     public int team;
     public int rank;
@@ -18,6 +17,7 @@ public class NPC : MonoBehaviour
         rb = this.GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(0, - speed );
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        GameObject deployer = GameObject.Find("Deployer");
         script = deployer.GetComponent<NPCDeployer>();
     }
 
@@ -34,6 +34,7 @@ public class NPC : MonoBehaviour
     {
         if (transform.position.y < -screenBounds.y * 2)
         {
+            script.returnPerson(new List<int>() { team, rank });
             Destroy(this.gameObject);
         }
     }
