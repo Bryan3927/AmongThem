@@ -10,6 +10,7 @@ public class NPC : MonoBehaviour
     NPCDeployer script;
     public int team;
     public int rank;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class NPC : MonoBehaviour
         // Initializes the NPC's team and rank
         this.team = team; 
         this.rank = rank;
+        animator.SetInteger("Team", team);
         transform.GetChild(0).gameObject.GetComponent<textHandler>().InitValue(rank);
     }
 
