@@ -8,19 +8,21 @@ public class PlayerMovement : MonoBehaviour
     public bool bow = false;
     public int health = 10;
     public int[] identity = new int[2];
-    public bool collide = false;
     public SuspicionBar sb;
     public Animator animator;
 
     //movement fields
     public float moveSpeed = 5f;
     public Rigidbody2D rb;
-    Vector2 movement;
     public int counter = 1;
-    public static Vector2 leftP = new Vector2( -6,-8);
-    public static Vector2 centerP = new Vector2( 0,-8);
-    public static Vector2 rightP = new Vector2( 6,-8);
+    
+    Vector2 movement;
+    static Vector2 leftP = new Vector2( -6,-8);
+    static Vector2 centerP = new Vector2( 0,-8);
+    static Vector2 rightP = new Vector2( 6,-8);
     Vector2[] positions = new Vector2[]{leftP, centerP, rightP};
+    bool collide = false;
+    float time_collision = 0f;
 
     void Start(){
         //populate identity
@@ -70,7 +72,12 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //if (collide and getCurrentime() - time_collision > 1 sec)
+        if (collide && Time.fixedTime - time_collision > 2){
+            collide=false;
+        }
+        else{
+            Debug.Log(Time.fixedTime-time_collision);
+        }
             
     }
 
@@ -113,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             int[] npc_info = new int[] { script.team, script.rank };
             script.Reaction(Check(npc_info)); // adjust health, trigger encounter animations
             sb.SetHealth(health);
-            collide = false; //TODO
+            time_collision=Time.fixedTime;
         }  
     }
 

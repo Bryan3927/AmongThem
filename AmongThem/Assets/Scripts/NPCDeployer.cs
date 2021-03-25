@@ -14,6 +14,9 @@ public class NPCDeployer : MonoBehaviour
     public Sprite[] sprites;
     public GameObject[] decorations;
 
+    float floorspawnrate = 6.0f;
+    float nextfloor;
+
     public GameObject player;
     private List<List<int>> people = new List<List<int>>();
     // Start is called before the first frame update
@@ -35,6 +38,7 @@ public class NPCDeployer : MonoBehaviour
         }
         nextleft = Time.time;
         nextright = Time.time;
+        nextfloor = Time.time;
 
         StartCoroutine(NPCWave());
     }
@@ -47,7 +51,7 @@ public class NPCDeployer : MonoBehaviour
         // Selects sprite (team) and rank and calls initialization function
         SpriteRenderer sr = npc.GetComponent<SpriteRenderer>();
         int range = people.Count;
-        Debug.Log(range);
+        //Debug.Log(range);
         List<int> person = people[Random.Range(0, range)];
         people.Remove(person);
         int team = person[0];
@@ -60,8 +64,11 @@ public class NPCDeployer : MonoBehaviour
 
     private void spawnFloor()
     {
-        GameObject floor = Instantiate(FloorPrefab) as GameObject;
-        floor.transform.position = new Vector2(0, screenBounds.y * 2);
+        if (Time.time > nextfloor){
+            GameObject floor = Instantiate(FloorPrefab) as GameObject;
+            floor.transform.position = new Vector2(0, screenBounds.y * 2);
+            nextfloor = Time.time + floorspawnrate;
+        }
     }
     
     private void spawnDecoration()
@@ -90,7 +97,6 @@ public class NPCDeployer : MonoBehaviour
             spawnEnemy(-6.0f);
             spawnEnemy(0.0f);
             spawnEnemy(6.0f);
-            spawnFloor();
         }
     }
 
@@ -103,5 +109,6 @@ public class NPCDeployer : MonoBehaviour
     void Update()
     {
         spawnDecoration();
+        spawnFloor();
     }
 }
