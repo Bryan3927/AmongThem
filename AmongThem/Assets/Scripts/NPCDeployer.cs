@@ -77,9 +77,7 @@ public class NPCDeployer : MonoBehaviour
 
     public void returnPerson(List<int> person)
     {
-        Debug.Log(people.Count);
         people.Add(person);
-        Debug.Log(people.Count);
     }
 
     // Update is called once per frame
