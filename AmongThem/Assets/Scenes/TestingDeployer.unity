@@ -257,6 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 1710193505958615011, guid: 1722fca419516874cb25377f8ad20d91, type: 3}
+  FloorPrefab: {fileID: 0}
   respawnTime: 6
   sprites:
   - {fileID: -6265968536785946490, guid: 26983e08cda494ec2908eb905670b469, type: 3}

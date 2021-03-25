@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPCDeployer : MonoBehaviour
 {
     public GameObject NPCPrefab;
+    public GameObject FloorPrefab;
     public float respawnTime = 1.0f;
     private Vector2 screenBounds;
     public Sprite[] sprites;
@@ -50,6 +51,17 @@ public class NPCDeployer : MonoBehaviour
         npc.GetComponent<NPC>().InitNPC(team, rank);
     }
 
+    private void spawnFloor()
+    {
+        GameObject floor = Instantiate(FloorPrefab) as GameObject;
+        floor.transform.position = new Vector2(0, screenBounds.y * 2);
+    }
+    
+    private void spawnDecoration()
+    {
+        // TODO spawn random decorations at random intervals
+    }
+
     IEnumerator NPCWave()
     {
         while(true)
@@ -58,6 +70,8 @@ public class NPCDeployer : MonoBehaviour
             spawnEnemy(-6.0f);
             spawnEnemy(0.0f);
             spawnEnemy(6.0f);
+            spawnFloor();
+            spawnDecoration();
         }
     }
 
