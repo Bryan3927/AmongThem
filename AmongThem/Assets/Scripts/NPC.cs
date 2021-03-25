@@ -8,8 +8,8 @@ public class NPC : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 screenBounds;
     NPCDeployer script;
-    public int team;
-    public int rank;
+    private int team;
+    private int rank;
     public Animator animator;
 
     // Start is called before the first frame update
@@ -27,7 +27,7 @@ public class NPC : MonoBehaviour
         // Initializes the NPC's team and rank
         this.team = team; 
         this.rank = rank;
-        animator.SetInteger("Team", team);
+        animator.SetInteger("Team", team-1);
         transform.GetChild(0).gameObject.GetComponent<textHandler>().InitValue(rank);
     }
 
@@ -39,11 +39,23 @@ public class NPC : MonoBehaviour
         // after animation done, reset speed
     }
 
+    public int GetTeam()
+    {
+        return team;
+    }
+
+    public int GetRank()
+    {
+        return rank;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (transform.position.y < -screenBounds.y * 2)
         {
+            Debug.Log("Team returning");
+            Debug.Log(team);
             script.returnPerson(new List<int>() { team, rank });
             Destroy(this.gameObject);
         }
