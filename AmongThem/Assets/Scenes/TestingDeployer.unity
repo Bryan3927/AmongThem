@@ -419,6 +419,7 @@ MonoBehaviour:
   identity: 0000000000000000
   collide: 0
   sb: {fileID: 458084969}
+  animator: {fileID: 1438261195}
   moveSpeed: 5.05
   rb: {fileID: 1438261192}
   counter: 1

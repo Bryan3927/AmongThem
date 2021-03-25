@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public int[] identity = new int[2];
     public bool collide = false;
     public SuspicionBar sb;
+    public Animator animator;
 
     //movement fields
     public float moveSpeed = 5f;
@@ -98,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
     private void Bow(){
         if (Input.GetAxisRaw("Bow")>0){
             bow=!bow;
+            animator.SetBool("Bow", bow);
         }
     }
 
