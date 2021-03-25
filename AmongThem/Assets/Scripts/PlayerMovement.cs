@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         else{
-            if (Input.anyKeyDown){
+            if (Input.anyKeyDown && !bow){
                 if (choice==2){
                     Move1();
                 }
@@ -64,7 +64,9 @@ public class PlayerMovement : MonoBehaviour
                 rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
             }
             else{
-                rb.position += (positions[counter] - rb.position) * 0.1f;
+                Vector2 destination = (positions[counter] - rb.position) * 0.1f;
+                if (bow) { destination = (new Vector2(positions[counter].x + 2, positions[counter].y) - rb.position) * 0.1f; }
+                rb.position += destination;
             }
         }
 
