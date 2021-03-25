@@ -8,8 +8,12 @@ public class NPCDeployer : MonoBehaviour
     public GameObject FloorPrefab;
     public float respawnTime = 1.0f;
     private Vector2 screenBounds;
+    private float nextleft;
+    private float nextright;
+    private float spawnrate = 4.0f;
     public Sprite[] sprites;
-    //public Animation[] animations;
+    public GameObject[] decorations;
+
     public GameObject player;
     private List<List<int>> people = new List<List<int>>();
     // Start is called before the first frame update
@@ -29,6 +33,9 @@ public class NPCDeployer : MonoBehaviour
                 }
             }
         }
+        nextleft = Time.time;
+        nextright = Time.time;
+
         StartCoroutine(NPCWave());
     }
 
@@ -60,18 +67,30 @@ public class NPCDeployer : MonoBehaviour
     private void spawnDecoration()
     {
         // TODO spawn random decorations at random intervals
+        if (Time.time > nextleft)
+        {
+            GameObject leftPlant = Instantiate(decorations[Random.Range(0, decorations.Length)]) as GameObject;
+            leftPlant.transform.position = new Vector2(-10, screenBounds.y * 2);
+            nextleft = Time.time + spawnrate + Random.Range(0, 5);
+        }
+        if (Time.time > nextright)
+        {
+            GameObject rightPlant = Instantiate(decorations[Random.Range(0, decorations.Length)]) as GameObject;
+            rightPlant.transform.position = new Vector2(10, screenBounds.y * 2);
+            nextright = Time.time + spawnrate + Random.Range(0, 5);
+        }
     }
 
     IEnumerator NPCWave()
     {
         while(true)
         {
+            
             yield return new WaitForSeconds(respawnTime);
             spawnEnemy(-6.0f);
             spawnEnemy(0.0f);
             spawnEnemy(6.0f);
             spawnFloor();
-            spawnDecoration();
         }
     }
 
@@ -83,6 +102,6 @@ public class NPCDeployer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        spawnDecoration();
     }
 }
