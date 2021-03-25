@@ -53,8 +53,8 @@ public class NPCDeployer : MonoBehaviour
 
     private void spawnFloor()
     {
-        //GameObject floor = Instantiate(FloorPrefab) as GameObject;
-        //floor.transform.position = new Vector2(0, screenBounds.y * 2);
+        GameObject floor = Instantiate(FloorPrefab) as GameObject;
+        floor.transform.position = new Vector2(0, screenBounds.y * 2);
     }
     
     private void spawnDecoration()
@@ -77,9 +77,7 @@ public class NPCDeployer : MonoBehaviour
 
     public void returnPerson(List<int> person)
     {
-        Debug.Log(people.Count);
         people.Add(person);
-        Debug.Log(people.Count);
     }
 
     // Update is called once per frame
