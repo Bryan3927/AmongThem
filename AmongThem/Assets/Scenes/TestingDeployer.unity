@@ -788,7 +788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPCPrefab: {fileID: 1710193505958615011, guid: 1722fca419516874cb25377f8ad20d91, type: 3}
   FloorPrefab: {fileID: 7712760543489519431, guid: 01ce5fd73adb22b44bc1c5e4187ee6e3, type: 3}
-  respawnTime: 6
+  respawnTime: 15
   sprites:
   - {fileID: -6265968536785946490, guid: 26983e08cda494ec2908eb905670b469, type: 3}
   - {fileID: 4031099175835299166, guid: 26983e08cda494ec2908eb905670b469, type: 3}
@@ -802,6 +802,7 @@ MonoBehaviour:
   - {fileID: 3428305010393336871, guid: be79f3ae36691e04fb76936052a4f975, type: 3}
   - {fileID: 4918626732135282210, guid: a10e42100b395fe49a027cf24e76743f, type: 3}
   - {fileID: 7430589257812940183, guid: 045983ee48440e744b15be9bfd4a509a, type: 3}
+  maxSpawnRate: 6
   player: {fileID: 1438261189}
 --- !u!4 &623663649
 Transform:

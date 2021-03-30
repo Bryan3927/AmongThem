@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public int[] identity = new int[2];
     public SuspicionBar sb;
     public Animator animator;
+    public Animator other_animator;
 
     //movement fields
     public float moveSpeed = 5f;
@@ -134,7 +135,13 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
 
-            script.Reaction(respect, !Check(npc_info)); // adjust health, trigger encounter animations
+            bool result = Check(npc_info);
+            if (!result){
+                other_animator.SetBool("Dmg", true);
+                Debug.Log("SET");
+            }
+             
+            script.Reaction(respect, !result); // adjust health, trigger encounter animations
             sb.SetHealth(health);
             time_collision=Time.fixedTime;
         }  
