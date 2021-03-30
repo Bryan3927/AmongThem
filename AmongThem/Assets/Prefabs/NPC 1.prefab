@@ -153,8 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  team: 0
-  rank: 0
   animator: {fileID: -3660177097460856087}
 --- !u!222 &7740412230906954178
 CanvasRenderer:
@@ -272,7 +270,7 @@ TextMesh:
   m_GameObject: {fileID: 6834061910235150194}
   m_Text: 
   m_OffsetZ: 0
-  m_CharacterSize: 0.4
+  m_CharacterSize: 0.8
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1

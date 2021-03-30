@@ -118,7 +118,23 @@ public class PlayerMovement : MonoBehaviour
             collide = true;
             NPC script = col.gameObject.GetComponent<NPC>();
             int[] npc_info = new int[] { script.GetTeam(), script.GetRank() };
-            script.Reaction(Check(npc_info)); // adjust health, trigger encounter animations
+
+            bool respect = false;
+            if (identity[0] == npc_info[0])
+            {
+                if (identity[1]-5<=npc_info[1])
+                {
+                    respect = true;
+                }
+            } else
+            {
+                if (identity[1]<=npc_info[1])
+                {
+                    respect = true;
+                }
+            }
+
+            script.Reaction(respect, !Check(npc_info)); // adjust health, trigger encounter animations
             sb.SetHealth(health);
             time_collision=Time.fixedTime;
         }  
