@@ -28,7 +28,7 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex +1));
     }
 
-    void RestartGame(){
+    public void RestartGame(){
         StartCoroutine(LoadLevel(0));
     }
 

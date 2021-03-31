@@ -13,9 +13,12 @@ public class NPCDeployer : MonoBehaviour
     private float spawnrate = 4.0f;
     public Sprite[] sprites;
     public GameObject[] decorations;
+    public float maxSpawnRate = 6.0f; 
 
     float floorspawnrate = 6.0f;
     float nextfloor;
+    float nextIncrement;
+    float incrementrate = 5.0f; //sec
 
     public GameObject player;
     private List<List<int>> people = new List<List<int>>();
@@ -39,6 +42,7 @@ public class NPCDeployer : MonoBehaviour
         nextleft = Time.time;
         nextright = Time.time;
         nextfloor = Time.time;
+        nextIncrement = Time.time;
 
         StartCoroutine(NPCWave());
     }
@@ -56,10 +60,10 @@ public class NPCDeployer : MonoBehaviour
         people.Remove(person);
         int team = person[0];
         int rank = person[1];
-        if (team < 1 || team > 4)
-        {
-            Debug.Log(team);
-        }
+        // if (team < 1 || team > 4)
+        // {
+        //     Debug.Log(team);
+        // }
         sr.sprite = sprites[team-1];
         //npc.AddComponent(typeof(Animation));
         //Animation ani = npc.GetComponent<Animation>();
@@ -114,5 +118,11 @@ public class NPCDeployer : MonoBehaviour
     {
         spawnDecoration();
         spawnFloor();
+        
+        // if (Time.time>nextIncrement){
+        //     respawnTime += 0.1f*(maxSpawnRate - respawnTime);
+        //     nextIncrement = Time.time + incrementrate;
+        // }
+
     }
 }

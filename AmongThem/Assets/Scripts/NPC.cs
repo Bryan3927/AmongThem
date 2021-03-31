@@ -79,8 +79,8 @@ public class NPC : MonoBehaviour
 
         if (transform.position.y < -screenBounds.y * 2)
         {
-            Debug.Log("Team returning");
-            Debug.Log(team);
+            // Debug.Log("Team returning");
+            // Debug.Log(team);
             script.returnPerson(new List<int>() { team, rank });
             Destroy(this.gameObject);
         }
