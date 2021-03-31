@@ -119,10 +119,10 @@ public class NPCDeployer : MonoBehaviour
         spawnDecoration();
         spawnFloor();
         
-        if (Time.time>nextIncrement){
-            spawnrate += 0.1f*(maxSpawnRate - spawnrate);
-            nextIncrement = Time.time + incrementrate;
-        }
+        // if (Time.time>nextIncrement){
+        //     respawnTime += 0.1f*(maxSpawnRate - respawnTime);
+        //     nextIncrement = Time.time + incrementrate;
+        // }
 
     }
 }

@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public int[] identity = new int[2];
     public SuspicionBar sb;
     public Animator animator;
-    public Animator other_animator;
+    //public Animator other_animator;
 
     //movement fields
     public float moveSpeed = 5f;
@@ -137,7 +137,7 @@ public class PlayerMovement : MonoBehaviour
 
             bool result = Check(npc_info);
             if (!result){
-                other_animator.SetBool("Dmg", true);
+                //other_animator.SetTrigger("Dmg");
                 Debug.Log("SET");
             }
              
