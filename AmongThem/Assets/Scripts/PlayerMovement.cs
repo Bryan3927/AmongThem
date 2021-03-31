@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public int[] identity = new int[2];
     public SuspicionBar sb;
     public Animator animator;
+    public GameObject loader;
     //public Animator other_animator;
 
     //movement fields
@@ -25,12 +26,15 @@ public class PlayerMovement : MonoBehaviour
     bool collide = false;
     float time_collision = 0f;
 
+    LevelLoader l_script;
+
     void Start(){
         //populate identity
         identity[0] = Random.Range(1,5); //team
         identity[1] = Random.Range(1, 11); //rank
         Debug.Log(identity[0]);
         Debug.Log(identity[1]);
+        l_script = loader.GetComponent<LevelLoader>();
     }
 
     void Update()
@@ -56,6 +60,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.anyKeyDown){
             Bow();
+        }
+
+        if (health<=0){
+            l_script.RestartGame(); //could make another function called reset that triggers other animations before cross fade like u lost
         }
     }
 
