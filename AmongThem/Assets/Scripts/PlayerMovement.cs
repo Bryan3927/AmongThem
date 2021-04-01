@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public SuspicionBar sb;
     public Animator animator;
     public GameObject loader;
-    //public Animator other_animator;
+    public Animator other_animator;
 
     //movement fields
     public float moveSpeed = 5f;
@@ -145,8 +145,8 @@ public class PlayerMovement : MonoBehaviour
 
             bool result = Check(npc_info);
             if (!result){
-                //other_animator.SetTrigger("Dmg");
-                Debug.Log("SET");
+                other_animator.SetTrigger("Dmg");
+                //Debug.Log("SET");
             }
              
             script.Reaction(respect, !result); // adjust health, trigger encounter animations
