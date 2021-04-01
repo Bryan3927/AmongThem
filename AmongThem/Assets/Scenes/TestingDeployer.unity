@@ -1028,7 +1028,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 878796652}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -1531,6 +1531,7 @@ MonoBehaviour:
   identity: 0000000000000000
   sb: {fileID: 458084969}
   animator: {fileID: 1438261195}
+  loader: {fileID: 0}
   moveSpeed: 5.05
   rb: {fileID: 1438261192}
   counter: 1
