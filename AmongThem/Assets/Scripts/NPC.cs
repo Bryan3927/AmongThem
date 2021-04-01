@@ -33,6 +33,8 @@ public class NPC : MonoBehaviour
         animator.SetInteger("Team", team-1);
         textHandler text = transform.GetChild(0).gameObject.GetComponent<textHandler>();
         text.InitValue(rank);
+        Material m = this.GetComponent<SpriteRenderer>().material;
+        m.SetFloat("_Thickness", -0.005f / 9f * rank + 0.05f / 9f);
     }
 
     public void Reaction(bool respect, bool crash)

@@ -155,9 +155,6 @@ AnimatorStateMachine:
     m_State: {fileID: 6687068098296000893}
     m_Position: {x: 570, y: 230, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 3246652772544308131}
-    m_Position: {x: 260, y: 340, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -4680521286244640696}
     m_Position: {x: 540, y: 90, z: 0}
   m_ChildStateMachines: []
@@ -205,8 +202,7 @@ AnimatorState:
   m_Name: Crossfade_Start
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions:
-  - {fileID: 7862351586659287102}
+  m_Transitions: []
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0

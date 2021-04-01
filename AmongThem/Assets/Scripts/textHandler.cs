@@ -17,7 +17,8 @@ public class textHandler : MonoBehaviour
         // Initializes displayed rank
         txt = this.GetComponent<TextMesh>();
         txt.text = value.ToString();
-        txt.characterSize = .9f - .05f * value;
+        txt.characterSize = 0.5f;
+        //txt.characterSize = .9f - .05f * value;
     }
 
     // Update is called once per frame
