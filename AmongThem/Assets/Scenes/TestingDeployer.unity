@@ -1531,12 +1531,8 @@ MonoBehaviour:
   identity: 0000000000000000
   sb: {fileID: 458084969}
   animator: {fileID: 1438261195}
-<<<<<<< HEAD
-  loader: {fileID: 0}
-=======
   loader: {fileID: 418018692}
   other_animator: {fileID: 2496478868169767401}
->>>>>>> 1a173efeb224d45f922b37787c2a1dd50171053a
   moveSpeed: 5.05
   rb: {fileID: 1438261192}
   counter: 1

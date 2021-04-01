@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     LevelLoader l_script;
 
+
     void Start(){
         //populate identity
         identity[0] = Random.Range(1,5); //team
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(identity[0]);
         Debug.Log(identity[1]);
         l_script = loader.GetComponent<LevelLoader>();
+        PlayerStats.Identity=identity;
     }
 
     void Update()
