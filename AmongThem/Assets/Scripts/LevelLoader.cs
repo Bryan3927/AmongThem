@@ -24,7 +24,7 @@ public class LevelLoader : MonoBehaviour
         //add button to trigger pokemon cut sequence on every counter (this is unique to other build)
     }
 
-    void LoadNextLevel(){
+    public void LoadNextLevel(){
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex +1));
     }
 
